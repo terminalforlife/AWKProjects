@@ -12,10 +12,10 @@
 
 BEGIN {
 	if (ARGC == 1) {
-		printf("Err: Arguments required.", Index)
+		printf("Err: Arguments required.")
 		exit(1)
 	} else if (ARGC == 2) {
-		printf("Err: Invalid number of arguments.", Index)
+		printf("Err: Invalid number of arguments.")
 		exit(1)
 	}
 
