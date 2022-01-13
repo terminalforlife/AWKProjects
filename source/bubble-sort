@@ -1,0 +1,42 @@
+#!/usr/bin/awk -f
+
+#------------------------------------------------------------------------------
+# Project Name      - AWKProjects/source/bubble-sort
+# Started On        - Thu 13 Jan 22:54:38 GMT 2022
+# Last Change       - Thu 13 Jan 23:17:42 GMT 2022
+# Author E-Mail     - terminalforlife@yahoo.com
+# Author GitHub     - https://github.com/terminalforlife
+#------------------------------------------------------------------------------
+# This is my successful attempt at writing an optimized numeric Bubble Sort
+# algorithm in AWK. This will sort the numbers given as positional parameters.
+#
+# This will sort in ascending order, but change the `>` in the `if` statement
+# to `<` for descending order. I'd like to sort like this alphanumerically, -
+# like which can be done in BASH, but I'm not sure how.
+#
+# I should point out that I'm well aware there is asort() and asorti(). I've
+# written this because I can, and out of interest of the result in AWK.
+#------------------------------------------------------------------------------
+
+BEGIN {
+	for (Iter = 0; Iter < ARGC; Iter++) {
+		Switched = "False"
+		for (Index = 1; Index < ARGC - (1 + Iter); Index++) {
+			if (ARGV[Index] > ARGV[Index + 1]) {
+				Temporary = ARGV[Index]
+				ARGV[Index] = ARGV[Index + 1]
+				ARGV[Index + 1] = Temporary
+
+				Switched = "True"
+			}
+		}
+
+		if (Switched == "False") {
+			break
+		}
+	}
+
+	for (Index = 1; Index < ARGC; Index++) {
+		print(ARGV[Index])
+	}
+}
