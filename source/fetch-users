@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------
 # Project Name      - AWKProjects/source/fetch-users
 # Started On        - Fri 14 Jan 14:30:02 GMT 2022
-# Last Change       - Fri 14 Jan 14:43:06 GMT 2022
+# Last Change       - Fri 14 Jan 17:53:23 GMT 2022
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #------------------------------------------------------------------------------
@@ -19,13 +19,13 @@ BEGIN {
 	while (getline < "/etc/passwd" != NULL) {
 		if ($3 < 1000 || $3 == 65534) continue
 
-		Len1 = length($1);
-		Len2 = length($3);
-		Len3 = length($4);
+		LenUser = length($1);
+		LenUID = length($3);
+		LenGID = length($4);
 
-		if (Len1 > MaxLenUser) MaxLenUser = Len1;
-		if (Len2 > MaxLenUID) MaxLenUID = Len2;
-		if (Len3 > MaxLenGID) MaxLenGID = Len3;
+		if (LenUser > MaxLenUser) MaxLenUser = LenUser;
+		if (LenUID > MaxLenUID) MaxLenUID = LenUID;
+		if (LenGID > MaxLenGID) MaxLenGID = LenGID;
 
 		Users[$1][UID] = $3;
 		Users[$1][GID] = $4
