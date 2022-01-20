@@ -30,7 +30,7 @@ BEGIN {
 		Args[ARGV[Index]] = 1
 	}
 
-	Len = asorti(Args, Sorted, "@ind_num_asc")
+	asorti(Args, Sorted, "@ind_num_asc")
 	for (Index in Sorted) {
 		print(Sorted[Index])
 	}
