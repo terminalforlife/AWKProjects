@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------
 # Project Name      - AWKProjects/source/fetch-users
 # Started On        - Fri 14 Jan 14:30:02 GMT 2022
-# Last Change       - Fri 14 Jan 17:53:23 GMT 2022
+# Last Change       - Thu 20 Jan 00:42:39 GMT 2022
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ BEGIN {
 	MaxLenUser = 4;
 	MaxLenUID = 3;
 	MaxLenGID = 3;
-	while (getline < "/etc/passwd" != NULL) {
+	while (getline < "/etc/passwd") {
 		if ($3 < 1000 || $3 == 65534) continue
 
 		LenUser = length($1);
