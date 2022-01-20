@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------
 # Project Name      - AWKProjects/source/get-swaps
 # Started On        - Wed 19 Jan 17:37:00 GMT 2022
-# Last Change       - Wed 19 Jan 17:41:47 GMT 2022
+# Last Change       - Thu 20 Jan 00:41:02 GMT 2022
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #------------------------------------------------------------------------------
@@ -45,10 +45,15 @@ function Human(Size) {
 }
 
 BEGIN {
+	if (ARGC > 1) {
+		print("Err: No arguments required.")
+		exit(1)
+	}
+
 	NameLenMax = 4
 	TypeLenMax = 4
 	SizeLenMax = 4
-	UsedLenMax = 5
+	UsedLenMax = 4
 	PrioLenMax = 4
 
 	NR = 0
@@ -56,6 +61,7 @@ BEGIN {
 		if (++NR <= 1) continue
 
 		$3 = Human($3)
+		$4 = $4 "K"
 
 		NameLen = length($1)
 		TypeLen = length($2)
@@ -76,15 +82,16 @@ BEGIN {
 	}
 
 	printf(\
-		"\033[2;37m%-*s %*s %*s %*s %*s\033[0m\n", NameLenMax, "NAME", TypeLenMax, "TYPE",
-		SizeLenMax, "SIZE", UsedLenMax, "USED", PrioLenMax, "PRIO"\
+		"\033[2;37m%-*s %*s %*s %*s %*s\033[0m\n", NameLenMax, "NAME",
+		TypeLenMax, "TYPE", SizeLenMax, "SIZE", UsedLenMax, "USED",
+		PrioLenMax, "PRIO"\
 	)
 
 	for (Name in Names) {
 		printf(\
 			"%-*s %*s %*s %*s %*d\n", NameLenMax, Name, TypeLenMax,
 			Names[Name]["TYPE"], SizeLenMax, Names[Name]["SIZE"], UsedLenMax,
-			Names[Name]["USED"] "K", PrioLenMax, Names[Name]["PRIO"]\
+			Names[Name]["USED"], PrioLenMax, Names[Name]["PRIO"]\
 		)
 	}
 }
