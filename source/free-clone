@@ -3,7 +3,7 @@
 #------------------------------------------------------------------------------
 # Project Name      - AWKProjects/source/free-clone
 # Started On        - Thu 20 Jan 01:29:43 GMT 2022
-# Last Change       - Thu 20 Jan 01:35:33 GMT 2022
+# Last Change       - Sun 23 Jan 12:57:30 GMT 2022
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #------------------------------------------------------------------------------
@@ -12,19 +12,25 @@
 # a minor amounts, and I have adhered to the free(1) man page.
 #------------------------------------------------------------------------------
 
-function Human(Size) {
-	Len = split("K M G T P E Z Y", Units, " ")
+function Human(Size, Type) {
+	if (Type == "Swap") {
+		UnitStr = "K M G T P E Z Y"
+	} else {
+		UnitStr = "b K M G T P E Z Y"
+	}
+
+	Len = split(UnitStr, Units, " ")
 	for (Index = 1; Index < Len; Index++) {
 		if (Size < 1024) {
 			Result = sprintf("%.1f", Size)
 			Len = length(Result)
-			LastTwo = substr(Result, Len - 1)
-			if (LastTwo == ".0") {
-				if (Units[Index] == "b") {
-					return(substr(Result, 0, Len - 2))
-				} else {
-					return(substr(Result, 0, Len - 2) Units[Index])
-				}
+
+			if (substr(Result, Len - 1) == ".0") {
+				Result = substr(Result, 0, Len - 2)
+			}
+
+			if (Units[Index] == "b") {
+				return(substr(Result, 0, Len - 1))
 			} else {
 				return(Result Units[Index])
 			}
@@ -67,6 +73,6 @@ BEGIN {
 
 	printf(\
 		"%-8s %10s %11s %11s\n", "Swap:",
-		Human(SwapTotal), Human(SwapUsed), Human(SwapFree)\
+		Human(SwapTotal), Human(SwapUsed, "Swap"), Human(SwapFree)\
 	)
 }
