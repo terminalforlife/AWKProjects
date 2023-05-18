@@ -1,13 +1,13 @@
 #!/usr/bin/awk -f
 
 #------------------------------------------------------------------------------
-# Project Name      - AWKProjects/source/bubble-sort
-# Started On        - Thu 13 Jan 22:54:38 GMT 2022
-# Last Change       - Thu 18 May 03:17:26 BST 2023
+# Project Name      - AWKProjects/source/insertion-sort
+# Started On        - Thu 18 May 03:09:28 BST 2023
+# Last Change       - Thu 18 May 03:20:18 BST 2023
 # Author E-Mail     - terminalforlife@yahoo.com
 # Author GitHub     - https://github.com/terminalforlife
 #------------------------------------------------------------------------------
-# Sort argument numbers (ascending) with Bubble Sort algorithm in AWK.
+# Sort argument numbers (ascending) with Insertion Sort algorithm in AWK.
 #------------------------------------------------------------------------------
 
 BEGIN {
@@ -26,19 +26,15 @@ BEGIN {
 
 	if (ArgErr > 0) exit(1)
 
-	for (Iter = 0; Iter < ARGC; Iter++) {
-		Switched = "False"
-		for (Index = 1; Index < ARGC - (1 + Iter); Index++) {
-			if (ARGV[Index] > ARGV[Index + 1]) {
-				Temp = ARGV[Index]
-				ARGV[Index] = ARGV[Index + 1]
-				ARGV[Index + 1] = Temp
+	for (Index = 1; Index < ARGC; Index++) {
+		Cur = ARGV[Index]
+		Pos = Index
 
-				Switched = "True"
-			}
+		while (Pos > 0 && ARGV[Pos - 1] > Cur) {
+			ARGV[Pos--] = ARGV[Pos - 1]
 		}
 
-		if (Switched == "False") break
+		ARGV[Pos] = Cur
 	}
 
 	for (Index = 1; Index < ARGC; Index++) {
