@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f
 
 #------------------------------------------------------------------------------
-# Project Name      - AWKProjects/source/core-frequency
+# Project Name      - AWKProjects/source/core-frequency.awk
 # Started On        - Mon 17 Jan 00:01:23 GMT 2022
 # Last Change       - Mon 17 Jan 00:15:33 GMT 2022
 # Author E-Mail     - terminalforlife@yahoo.com

@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f
 
 #------------------------------------------------------------------------------
-# Project Name      - AWKProjects/source/list-deb-pkgs
+# Project Name      - AWKProjects/source/list-deb-pkgs.awk
 # Started On        - Thu 13 Jan 23:43:11 GMT 2022
 # Last Change       - Fri 14 Jan 00:18:50 GMT 2022
 # Author E-Mail     - terminalforlife@yahoo.com

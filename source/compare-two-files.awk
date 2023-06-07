@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f
 
 #------------------------------------------------------------------------------
-# Project Name      - AWKProjects/source/compare-two-files
+# Project Name      - AWKProjects/source/compare-two-files.awk
 # Started On        - Sat 15 Jan 14:55:19 GMT 2022
 # Last Change       - Sat 15 Jan 23:02:20 GMT 2022
 # Author E-Mail     - terminalforlife@yahoo.com

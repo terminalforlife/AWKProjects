@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f
 
 #------------------------------------------------------------------------------
-# Project Name      - AWKProjects/source/bubble-sort
+# Project Name      - AWKProjects/source/bubble-sort.awk
 # Started On        - Thu 13 Jan 22:54:38 GMT 2022
 # Last Change       - Thu 18 May 03:17:26 BST 2023
 # Author E-Mail     - terminalforlife@yahoo.com

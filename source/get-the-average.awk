@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f
 
 #------------------------------------------------------------------------------
-# Project Name      - AWKProjects/source/get-the-average
+# Project Name      - AWKProjects/source/get-the-average.awk
 # Started On        - Thu 13 Jan 22:36:21 GMT 2022
 # Last Change       - Thu 13 Jan 23:23:05 GMT 2022
 # Author E-Mail     - terminalforlife@yahoo.com
